@@ -1,0 +1,43 @@
+@use './reset';
+@use './variables/' as *;
+@use 'function';
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Kaushan+Script&family=LXGW+WenKai+TC&family=Special+Gothic+Expanded+One&display=swap');
+
+body{
+    font-family: "Catamaran", sans-serif;
+    font-optical-sizing: auto; //可搜尋「光學字體」關鍵字，閱讀上比較不會疲勞
+    color: $White;  //所有字變白色
+}
+section{
+    height: 100vh; //所有區塊跟視窗一樣高
+    @extend %flex-center; //所有元素置中
+    padding: 0 10%;
+    gap:30px;
+
+    // // .content{
+    //     晚點再＋    // }
+}
+
+#banner{
+    // 語法順序越在前的排序權重越高
+    background-image:url(../images/bg-pattern-logos.png), linear-gradient(#e70112 15%,#b20722 75%);
+
+    > div {
+        flex: 1;  
+    }
+
+    h1 {
+        font-size: $f-s-ex;
+        font-weight: $f-w-k;
+        line-height: 0.8;
+        letter-spacing: 2px;
+
+        span{
+            font-size: $f-s-xxxl;
+        }
+    }
+    p{
+        font-size:$f-s-lg;
+        margin-top:$space-xxl ;
+    }
+}
