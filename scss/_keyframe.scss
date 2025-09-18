@@ -1,0 +1,67 @@
+//banner1
+@keyframes brick{
+    //座標位置先用一般靜態定位嘗試過，沒問題再搬過來keyframes，scss的定位座標再刪掉 
+    0%   { top:5vh; right:-100%; }  //0s, 在視窗外面等（與0%30%100%位置相同）
+    10%  { top:5vh; right:-20%; }   //1.2s, 結果
+    20%  { top:5vh; right:-20%; }   //2.4s, 結果
+    30%  { top:5vh; right:-100%; }  //3.6s, 在視窗外面等（與0%30%100%位置相同）
+    100% { top:5vh; right:-100%; }  //12s, 在視窗外面等（與0%30%100%位置相同）
+}
+@keyframes luigi{
+    0% { top:100vh; right:5%;  }
+    10% { top:25vh; right:5%; }
+    20% { top:25vh; right:5%; }
+    30% { top:100vh; right:5%; }
+    100% { top:100vh; right:5%; }
+}
+@keyframes mario1{
+    0% { top:100vh; left:-5%; }
+    10% { top:15vh; left:-5%; }
+    20% { top:15vh; left:-5%; }
+    30% { top:100vh; left:-5%; }
+    100% { top:100vh; left:-5%;}
+}
+//banner2
+@keyframes pipe{
+    0% { top:100vh; right:0; }
+    10% { top:5vh; right:0; }
+    20% { top:5vh; right:0; }
+    30% { top:100vh; right:0; }
+    100% { top:100vh; right:0; }
+}
+@keyframes peach{
+    0% { top:100vh; right:20%; }
+    10% { top:30vh; right:20%; }
+    20% { top:30vh; right:20%; }
+    30% { top:100vh; right:20%; }
+    100% { top:100vh; right:20%; }
+}
+@keyframes mario2{
+    0%{ top:100vh; left:-10%; }
+    10%{ top:10vh; left:-10%; }
+    20%{ top:10vh; left:-10%; }
+    30%{ top:100vh; left:-10%; }
+    100%{ top:100vh; left:-10%; }
+}
+//banner3
+@keyframes star{
+    0%{ top:100vh; right:5%; }
+    10%{ top:5vh; right:5%; }
+    20%{ top:5vh; right:5%; }
+    30%{ top:100vh; right:5%; }
+    100%{ top:100vh; right:5%; }
+}
+@keyframes toad{
+    0%{ top:100vh; right:20%;}
+    10%{ top:30vh; right:20%; }
+    20%{ top:30vh; right:20%; }
+    30%{ top:100vh; right:20%; }
+    100%{ top:100vh; right:20%; }
+}
+@keyframes mario3{
+    0%{ top:100vh; left: -20%; }
+    10%{ top:20vh; left: -20%; }
+    20%{ top:20vh; left: -20%; }
+    30%{ top:100vh; left: -20%; }
+    100%{ top:100vh; left: -20%; }
+}

@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <title>Document</title>
+    <title>The Official home of Super Mario</title>
 
     <link rel="stylesheet" href="./css/style.min.css">
 </head>
 
 <body>
-    <header>頁首-跳過</header>
+    <header style="background-color: #333;">頁首-跳過</header>
     <main>
         <!-- banner區 -->
         <section id="banner">
-
             <!-- 內容區 -->
             <!-- div.content>(h1>span)+p+a 同一組的用()包一起、兄弟用+相連-->
             <div class="content">
@@ -28,12 +27,77 @@
             </div>
 
             <!-- 動態圖片 -->
-            <div class="photo">photo</div>
+            <div class="photo">
+                <!-- 咒語：div.banner$*3>figure>img -->
+                <div class="banner1">
+                    <figure><img src="./images/banner1-brick-row.png" alt=""></figure>
+                    <figure><img src="./images/banner1-luigi.png" alt=""></figure>
+                    <figure><img src="./images/banner1-mario.png" alt=""></figure>
+                </div>
+
+                <div class="banner2">
+                    <figure><img src="./images/banner2-pipe.png" alt=""></figure>
+                    <figure><img src="./images/banner2-peach.png" alt=""></figure>
+                    <figure><img src="./images/banner2-mario.png" alt=""></figure>
+                </div>
+
+                <div class="banner3">
+                    <figure><img src="./images/banner3-star.png" alt=""></figure>
+                    <figure><img src="./images/banner3-toad.png" alt=""></figure>
+                    <figure><img src="./images/banner3-mario.png" alt=""></figure>
+                </div>
+
+            </div>
 
         </section>
+        <section id="switch">
+            <div class="list-box">
+                <!-- 咒語：div.card-item$*3>(figure>img)>div.content>h2+p -->
+                <div class="card-item1">
+                    <figure data-tilt><img src="./images/mario_1.png" alt=""></figure>
+                    <div class="content">
+                        <h2>Mario Kart™ 8 Deluxe</h2>
+                        <p>Race with Mario and friends anytime, anywhere!</p>
+                    </div>
+                </div>
+                <div class="card-item2">
+                    <figure data-tilt><img src="./images/mario_2.png" alt=""></figure>
+                    <div class="content">
+                        <h2>Mario Kart™ 8 Deluxe</h2>
+                        <p>Race with Mario and friends anytime, anywhere!</p>
+                    </div>
+                </div>
+                <div class="card-item3">
+                    <figure data-tilt><img src="./images/mario_3.png" alt=""></figure>
+                    <div class="content">
+                        <h2>Mario Kart™ 8 Deluxe</h2>
+                        <p>Race with Mario and friends anytime, anywhere!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    <footer style="background-color: #333;">頁尾-跳過</footer>
 
-    <footer>頁尾-跳過</footer>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- 3D傾斜套件：https://micku7zu.github.io/vanilla-tilt.js/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script>
+        VanillaTilt.init(document.querySelector(".card-item1"), {
+            max: 25,
+            speed: 400
+        });
+        VanillaTilt.init(document.querySelector(".card-item2"), {
+            max: 25,
+            speed: 400
+        });
+        VanillaTilt.init(document.querySelector(".card-item3"), {
+            max: 25,
+            speed: 400
+        });
+    </script>
 </body>
 
 </html>

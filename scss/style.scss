@@ -1,29 +1,34 @@
-@use './reset';
-@use './variables/' as *;
+@use 'reset';
+@use 'keyframe';
+@use 'variables/' as *;
 @use 'function';
-@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Kaushan+Script&family=LXGW+WenKai+TC&family=Special+Gothic+Expanded+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-body{
+
+body {
     font-family: "Catamaran", sans-serif;
     font-optical-sizing: auto; //可搜尋「光學字體」關鍵字，閱讀上比較不會疲勞
-    color: $White;  //所有字變白色
+    color: $White; //所有字變白色
 }
-section{
+
+section {
     height: 100vh; //所有區塊跟視窗一樣高
     @extend %flex-center; //所有元素置中
-    padding: 0 10%;
-    gap:30px;
+
+    gap: 30px;
 
     // // .content{
     //     晚點再＋    // }
 }
 
-#banner{
+#banner {
     // 語法順序越在前的排序權重越高
-    background-image:url(../images/bg-pattern-logos.png), linear-gradient(#e70112 15%,#b20722 75%);
+    background-image: url(../images/bg-pattern-logos.png), linear-gradient(#e70112 15%, #b20722 75%);
+    padding-left: 10%;
+    overflow: hidden; // 浮動物件超過視窗的話就要給溢位隱藏，才不會出現捲軸
 
-    > div {
-        flex: 1;  
+    >div {
+        flex: 1;
     }
 
     h1 {
@@ -32,12 +37,115 @@ section{
         line-height: 0.8;
         letter-spacing: 2px;
 
-        span{
+        span {
             font-size: $f-s-xxxl;
         }
     }
-    p{
-        font-size:$f-s-lg;
-        margin-top:$space-xxl ;
+
+    p {
+        font-size: $f-s-lg;
+        margin-top: $space-xxl ;
+    }
+
+    .photo {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+
+        figure{
+            position: absolute;
+        }
+
+        .banner1 {
+            figure {
+                //座標位置先用一般靜態定位嘗試過，沒問題再搬過去keyframes，這邊的定位座標再註解掉
+                &:nth-child(1){ //brick
+                    width: 85%; //top:5vh; right:-20%;
+                    animation: brick 12s 0.5s both infinite;
+                }
+                &:nth-child(2){ //luigi
+                    width: 50%; //top:25vh; right:5%;
+                    animation: luigi 12s 0.35s both infinite;
+                }
+                &:nth-child(3){ //mario1
+                    width: 60%; //top:15vh; left:-5%;
+                    animation: mario1 12s 0s both infinite;
+                }
+            }
+        }
+        .banner2 { //一組banner+4s 第二組等第一組跑完，所以延遲時間+4s
+            figure {
+                &:nth-child(1){ //pipe=4+0.5s
+                    //top:5vh; right:0;
+                    animation: pipe 12s 4.5s both infinite;
+                }
+                &:nth-child(2){ //peach=4+0.35s
+                    width: 45%; //top:30vh; right:20%;
+                    animation: peach 12s 4.35s both infinite;
+                }
+                &:nth-child(3){ //mario2=4s
+                    width: 65%; //top:10vh; right:-10%;
+                    animation: mario2 12s 4s both infinite;
+                }
+            }
+
+        }
+        .banner3 { //一組banner+4s 第三組等第二組跑完，所以+8s
+            figure {
+                &:nth-child(1){ //star=4+4+0.5s
+                    width: 50%; //top:5vh; right:5%;
+                    animation: star 12s 8.5s both infinite;
+                }
+                &:nth-child(2){ //toad=4+4+0.35s
+                    width: 40%; //top:30vh; right:20%;
+                    animation: toad 12s 8.35s both infinite;
+                }
+                &:nth-child(3){ //mario3=4+4s
+                    width: 85%; //top:20vh; left: -20%;
+                    animation: mario3 12s 8s both infinite;
+                }
+            }
+        
+        }
+
+    }
+
+}
+
+#switch{
+    .list-box{
+        width: 80%; //父容器總寬
+        @extend %flex-center; //元素置中
+        gap: 30px; //孩子間距
+
+        > div {
+            flex: 1; //子元素均分
+            background-color: $Charcoal; //子元素背景色
+            border-radius: 20px; //子元素圓角
+        }
+        figure{
+            position: relative; //給圖片定位
+            height: 40vh; //圖片容器範圍
+            display: flex;
+            justify-content: center; //水平置中
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+
+            img{
+                position: absolute; //讓圖片浮起來
+                width: 90%; //相對於父容器的寬度
+                top: -50px; //超出去頂部
+                transform: translateZ(50px); //子元素浮起
+            }
+        }
+        .content{
+            height: 8.75em;
+            padding: 30px;
+
+            h2{
+            font-size: 1.3rem;
+            font-weight: 600;
+            }    
+        }   
     }
 }
